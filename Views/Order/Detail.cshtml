@@ -1,0 +1,62 @@
+﻿@model SiAciYummy.Models.Order
+
+<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-success">📋 Detail Pesanan</h2>
+            <p class="text-muted">Lihat informasi lengkap pesanan pelanggan</p>
+        </div>
+
+        <!-- Detail Form -->
+        <form class="bg-white shadow-lg rounded-4 p-4">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="orderId" class="form-label fw-bold">Order ID:</label>
+                        <input type="text" class="form-control rounded-3" id="orderId" value="@Model.Id" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="customerName" class="form-label fw-bold">Nama Pelanggan:</label>
+                        <input type="text" class="form-control rounded-3" id="customerName" value="@Model.CustomerName" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="address" class="form-label fw-bold">Alamat Pengiriman:</label>
+                        <input type="text" class="form-control rounded-3" id="address" value="@Model.Address" readonly>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="status" class="form-label fw-bold">Status:</label>
+                        <input type="text" class="form-control rounded-3" id="status" value="@Model.Status" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="productName" class="form-label fw-bold">Produk:</label>
+                        <input type="text" class="form-control rounded-3" id="productName" value="@Model.Product.Name" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="phoneNumber" class="form-label fw-bold">Nomor Telepon:</label>
+                        <input type="text" class="form-control rounded-3" id="phoneNumber" value="@Model.PhoneNumber" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="productPrice" class="form-label fw-bold">Harga:</label>
+                <input type="text" class="form-control rounded-3" id="productPrice" value="Rp @Model.Product.Price.ToString("N0")" readonly>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="productDescription" class="form-label fw-bold">Deskripsi:</label>
+                <textarea class="form-control rounded-3" id="productDescription" rows="3" readonly>@Model.Product.Description</textarea>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="/order" class="btn btn-success fw-semibold shadow-sm px-4 py-2 rounded-3">
+                    ← Kembali
+                </a>
+            </div>
+        </form>
+    </div>
+</body>

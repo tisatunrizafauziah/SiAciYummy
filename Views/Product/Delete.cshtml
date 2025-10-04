@@ -1,0 +1,64 @@
+﻿@model Product
+
+<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-success">
+                Hapus Produk
+            </h2>
+            <p class="text-muted">Apakah Anda yakin ingin menghapus produk ini? Aksi ini tidak dapat dibatalkan.</p>
+        </div>
+
+        <!-- Card -->
+        <div class="card shadow-lg rounded-4 border-0 mx-auto" style="max-width: 600px;">
+            <div class="card-body p-4">
+                <h5 class="fw-semibold mb-3 text-secondary">Detail Produk:</h5>
+                <dl class="row mb-4">
+                    <dt class="col-sm-4 fw-bold">ID:</dt>
+                    <dd class="col-sm-8">@Model.Id</dd>
+
+                    <dt class="col-sm-4 fw-bold">Nama:</dt>
+                    <dd class="col-sm-8">@Model.Name</dd>
+
+                    <dt class="col-sm-4 fw-bold">Deskripsi:</dt>
+                    <dd class="col-sm-8">@Model.Description</dd>
+
+                    <dt class="col-sm-4 fw-bold">Harga:</dt>
+                    <dd class="col-sm-8">Rp @Model.Price</dd>
+
+                    <dt class="col-sm-4 fw-bold">Gambar:</dt>
+                    <dd class="col-sm-8">
+                        <img src="@Url.Content("~/images/" + Model.Image)" alt="@Model.Name" class="rounded shadow-sm" width="120" height="120" />
+                    </dd>
+
+                    <dt class="col-sm-4 fw-bold">Stok:</dt>
+                    <dd class="col-sm-8">@Model.Stok</dd>
+                </dl>
+
+                <!-- Form Hapus -->
+                <form asp-action="DeleteConfirmed" asp-route-id="@Model.Id" method="post">
+                    <div class="d-flex justify-content-between">
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-success px-4">
+                            <i class="fas fa-arrow-left me-1"></i> Batal
+                        </a>
+                        <button type="submit" class="btn btn-success fw-semibold shadow-sm px-4">
+                            <i class="fas fa-trash-alt me-1"></i> Hapus
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .btn-success:hover {
+            background-color: #218838 !important;
+        }
+
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+    </style>
+</body>

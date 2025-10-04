@@ -1,0 +1,53 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.hero-section {
+    background-image: url('https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/68/2024/08/31/IMG-20240831-WA0002-3711985164.jpg');
+   
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+   
+    min-height: 50vh; 
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+    .hero-section h1, .hero-section p {
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+
+.custom-green-navbar {
+    background: linear-gradient(90deg, #16a34a, #22c55e); /* hijau emerald ke lime */
+}
+
+.hover-nav {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+    .hover-nav:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }

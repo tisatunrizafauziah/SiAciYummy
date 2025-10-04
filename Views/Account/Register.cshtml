@@ -1,0 +1,117 @@
+﻿<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-10 col-lg-8">
+
+                <!-- Card -->
+                <div class="card shadow-lg border-0 rounded-4">
+
+                    <!-- Header -->
+                    <div class="card-header bg-success text-white text-center fw-bold rounded-top-4 py-3">
+                        <h3 class="mb-0 fw-bold">Registrasi</h3>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="card-body bg-white rounded-bottom-4 p-4">
+                        <form method="post" enctype="multipart/form-data" action="Register">
+
+                            <div class="row g-3">
+                                <!-- Username & Password -->
+                                <div class="col-md-6">
+                                    <label for="username" class="form-label fw-bold">Username</label>
+                                    <input type="text" id="username" name="username"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan username" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="password" class="form-label fw-bold">Password</label>
+                                    <input type="password" id="password" name="password"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan password" required>
+                                </div>
+
+                                <!-- Nama & Alamat -->
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label fw-bold">Nama</label>
+                                    <input type="text" id="name" name="name"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan nama" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="alamat" class="form-label fw-bold">Alamat</label>
+                                    <input type="text" id="alamat" name="alamat"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan alamat" required>
+                                </div>
+
+                                <!-- Email & Telepon -->
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input type="email" id="email" name="email"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="telepon" class="form-label fw-bold">Telepon</label>
+                                    <input type="tel" id="telepon" name="telepon"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="Masukkan nomor telepon" required>
+                                </div>
+
+                                <!-- Tanggal lahir & Role -->
+                                <div class="col-md-6">
+                                    <label for="tanggal_lahir" class="form-label fw-bold">Tanggal Lahir</label>
+                                    <input type="date" id="tanggal_lahir" name="tanggal_lahir"
+                                           class="form-control rounded-3 py-2 fw-bold" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="role" class="form-label fw-bold">Role</label>
+                                    <input type="text" id="role" name="role"
+                                           class="form-control rounded-3 py-2 fw-bold" placeholder="User / Admin" required>
+                                </div>
+
+                                <!-- Foto -->
+                                <div class="col-12">
+                                    <label for="foto" class="form-label fw-bold">Foto</label>
+                                    <input type="file" id="foto" name="foto"
+                                           class="form-control rounded-3 py-2 fw-bold">
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-success btn-lg fw-bold shadow-sm rounded-3 py-2 w-100">
+                                    Register
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="card-footer text-center bg-light rounded-bottom-4 py-3">
+                        <small class="text-muted fw-bold">
+                            Sudah punya akun? <a href="/Account/Login" class="fw-bold text-success">Login di sini</a>
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS tambahan -->
+    <style>
+        ::placeholder {
+            font-weight: bold;
+            color: #999;
+        }
+
+        /* efek hover tombol */
+        .btn-success:hover {
+            background-color: #4caf50 !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* link login hover */
+        .text-success:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</body>

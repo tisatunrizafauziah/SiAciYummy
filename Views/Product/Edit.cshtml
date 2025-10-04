@@ -1,0 +1,72 @@
+﻿@model Product
+
+<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-success">
+                ✏️ Edit Produk
+            </h2>
+            <p class="text-muted">Ubah detail produk sesuai kebutuhan, lalu simpan perubahan.</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="card shadow-lg rounded-4 border-0 mx-auto" style="max-width: 600px;">
+            <div class="card-body p-4">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-bold"></label>
+                        <input asp-for="Name" class="form-control rounded-3" placeholder="Masukkan nama produk" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label fw-bold"></label>
+                        <textarea asp-for="Description" class="form-control rounded-3" rows="3" placeholder="Masukkan deskripsi produk"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Price" class="form-label fw-bold"></label>
+                        <input asp-for="Price" class="form-control rounded-3" placeholder="Masukkan harga produk" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Stok" class="form-label fw-bold"></label>
+                        <input asp-for="Stok" class="form-control rounded-3" placeholder="Masukkan jumlah stok" />
+                        <span asp-validation-for="Stok" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Image" class="form-label fw-bold"></label>
+                        <input type="file" asp-for="Image" class="form-control rounded-3" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a asp-action="Index" class="btn btn-outline-success px-4">
+                            <i class="fas fa-arrow-left me-1"></i> Kembali
+                        </a>
+                        <button type="submit" class="btn btn-success fw-semibold shadow-sm px-4">
+                            <i class="fas fa-save me-1"></i> Simpan Perubahan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .form-control:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+
+        .btn-success:hover {
+            background-color: #218838 !important;
+        }
+    </style>
+</body>

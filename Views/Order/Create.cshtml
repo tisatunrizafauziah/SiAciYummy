@@ -1,0 +1,65 @@
+﻿@model SiAciYummy.Models.Order
+
+<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-6 col-lg-5">
+
+            <!-- Card -->
+            <div class="card shadow-lg border-0 rounded-4">
+                <!-- Header -->
+                <div class="card-header bg-success text-white text-center fw-bold rounded-top-4 py-3">
+                    <h3 class="mb-0">Pemesanan</h3>
+                </div>
+
+                <!-- Body -->
+                <div class="card-body bg-white rounded-bottom-4 p-4">
+                    <form asp-action="Create" method="post">
+
+                        <div class="mb-3">
+                            <label for="CustomerName" class="form-label fw-bold">Nama</label>
+                            <input type="text" class="form-control rounded-3 py-2" id="CustomerName" name="CustomerName" placeholder="Masukkan nama Anda" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Address" class="form-label fw-bold">Alamat</label>
+                            <input type="text" class="form-control rounded-3 py-2" id="Address" name="Address" placeholder="Masukkan alamat Anda" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="PhoneNumber" class="form-label fw-bold">Nomor Telepon</label>
+                            <input type="text" class="form-control rounded-3 py-2" id="PhoneNumber" name="PhoneNumber" placeholder="Masukkan nomor telepon Anda" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success btn-lg fw-bold shadow-sm rounded-3 py-2">
+                                Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer text-center bg-light rounded-bottom-4 py-3">
+                    <small class="text-muted fw-bold">Terima kasih sudah memesan di <span class="text-success">SiAci Yummy</span> 🍽️</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Tambahan CSS -->
+    <style>
+        ::placeholder {
+            font-weight: normal;
+            color: #777;
+        }
+
+        .btn-success:hover {
+            background-color: #4caf50 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
+</body>

@@ -1,0 +1,206 @@
+﻿
+@{
+    ViewData["Title"] = "Home - SiAci Yummy";
+}
+<body style="background: linear-gradient(to right, #e8f5e9, #f1f8e9); min-height: 100vh;">
+<div class="container py-5">
+    <div class="position-relative mb-5">
+        <img src="https://bolulembang.co.id/wp-content/uploads/2021/03/cimol-asal-bandung.jpeg" 
+             alt="SiAci Yummy"
+             class="w-100 h-60 object-fit-cover rounded shadow-lg"
+             style="min-height: 200px; max-height: 200px;" />
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center p-4 bg-black bg-opacity-50 rounded">
+            <h1 class="display-5 fw-bold mb-3 text-white">
+                Selamat Datang di SiAci Yummy!
+            </h1>
+            <p class="lead mb-4 text-white">
+                Nikmati berbagai macam produk gurih, enak, dan lezat hanya di SiAci
+                Yummy. Kami berkomitmen untuk memberikan kualitas terbaik untuk
+                setiap produk yang kami tawarkan.
+            </p>
+        </div>
+    </div>
+
+    @* About/Menu Section *@
+    <div class="bg-white mt-5 py-4 px-3 shadow rounded-lg">
+        <h2 class="text-center display-6 fw-bold mb-5 text-dark">
+            Menu Andalan Kami
+        </h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            @{
+                var menuItems = new[]
+                {
+            new {
+            imgSrc = "https://id-test-11.slatic.net/p/359911095ee2af487d498a5dcc7169a0.jpg",
+            title = "Cilok Bumbu Kacang",
+            description = "Nikmati cilok (bola-bola tepung kanji) yang kenyal, disajikan dengan bumbu kacang yang kaya rasa. Setiap gigitan memberikan sensasi tekstur yang memuaskan, berpadu dengan saus kacang yang gurih dan sedikit pedas."
+            },
+            new {
+            imgSrc = "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/p1/31/2023/09/09/ewhgwhJPG-306239480.jpg",
+            title = "Cireng Isi",
+            description = "Cireng (aci goreng) yang renyah di luar dan lembut di dalam, dengan berbagai isian pilihan yang menggugah selera. Cobalah berbagai variasi rasa yang kami tawarkan untuk pengalaman kuliner yang berbeda setiap kali."
+            },
+            new {
+            imgSrc = "https://www.tokomesin.com/wp-content/uploads/2017/09/4-Resep-Untuk-Cara-Membuat-Batagor-Mudah-2.jpg",
+            title = "Batagor",
+            description = "Sajian batagor kami terbuat dari ikan tenggiri dan tepung kanji, digoreng hingga crispy dan disajikan dengan bumbu kacang yang lezat serta sambal yang pedas. Perfectly paired for a satisfying snack or meal."
+            },
+            new {
+            imgSrc = "https://cdn.idntimes.com/content-images/community/2022/09/fromandroid-2a7c02339b70c67935fd567bc12ddc4a.jpg",
+            title = "Bakso Aci",
+            description = "Bakso aci kami merupakan kombinasi sempurna antara daging bakso yang lembut dan bola-bola aci yang kenyal. Disajikan dengan kuah yang gurih dan bumbu khas yang membuat setiap suapan terasa nikmat."
+            }
+            };
+            }
+
+            @foreach (var item in menuItems)
+            {
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm transition-hover">
+                        <img src="@item.imgSrc" alt="@item.title" class="card-img-top object-fit-cover" style="height: 160px;" />
+                        <div class="card-body bg-light">
+                            <h3 class="card-title fs-5 fw-semibold text-dark mb-2">@item.title</h3>
+                            <p class="card-text text-muted">@item.description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @* CTA Section *@
+    <div class="bg-dark text-white mt-5 py-5 shadow rounded-lg text-center"
+         style="background-image: url('https://example.com/your-image.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1 class="fs-4 fw-semibold mb-4">
+                "Yuk, Cicipi Berbagai Hidangan Lezat Kami! Temukan Cita Rasa Baru di Sini!"
+            </h1>
+            <a href="@Url.Action("Index", "Product")"
+               class="btn btn-danger btn-lg">
+                Product
+            </a>
+        </div>
+    </div>
+
+    @* Feedback Form *@
+    <div class="mt-5 bg-info p-4 rounded-lg">
+        @* Ganti bg-blue-400 dengan bg-info atau warna Bootstrap lain *@
+        <h2 class="text-center display-6 fw-bold mb-4 text-dark">
+            Kritik dan Saran
+        </h2>
+        <form id="feedbackForm" class="bg-white p-4 shadow rounded-lg">
+            <div class="mb-3">
+                <input type="email"
+                       name="email"
+                       id="feedbackEmail"
+                       placeholder="Email Anda"
+                       class="form-control form-control-lg"
+                       required />
+            </div>
+            <div class="mb-3">
+                <textarea name="message"
+                          id="feedbackMessage"
+                          rows="4"
+                          placeholder="Masukkan kritik dan saran Anda di sini..."
+                          class="form-control form-control-lg"
+                          required></textarea>
+            </div>
+            <button type="submit"
+                    class="btn btn-danger btn-lg w-100">
+                Kirim
+            </button>
+        </form>
+    </div>
+
+    @* Contact and Info Section *@
+    <div class="bg-light mt-5 py-5 px-4 shadow rounded-lg">
+        <div class="container">
+            <div class="row justify-content-between mb-4">
+                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                    <a href="#" class="h3 fw-bold text-dark text-decoration-none">
+                        SiAci Yummy<span class="text-danger">.</span>
+                    </a>
+                    <p class="lead mt-3 mb-2 text-muted">
+                        Alamat Kami:
+                        <br />
+                        Jl. Dakota No.8A, Kota Bandung,
+                        <br /> Jawa Barat, 12345
+                    </p>
+                </div>
+
+                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                    <p class="fw-semibold mb-2 text-dark">Contact Info</p>
+                    <p class="mb-1">+62 (341) 123-45678</p>
+                    <p class="mb-1">helpdesk@siaciyummy.co.id</p>
+                    <p class="mb-1">cs@siaciyummy.co.id</p>
+                    <a href="http://wbs.siacyummy.co.id"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="text-primary hover-text-decoration-underline">
+                        wbs.siacyummy.co.id
+                    </a>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="fw-semibold mb-2 text-dark">Opening Hours</p>
+                    <p class="mb-1">Senin-Minggu: 08:00-22:00</p>
+                    <p>Beberapa Outlets 24 Jam</p>
+                </div>
+            </div>
+
+       
+            <div class="d-flex justify-content-center mt-4 space-x-4">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-secondary mx-2 fs-3" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-secondary mx-2 fs-3" aria-label="Twitter">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-secondary mx-2 fs-3" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+@section Scripts {
+    <script>
+
+            // --- Logika Form Feedback ---
+            const form = document.getElementById('feedbackForm');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Dapatkan data form
+                const email = document.getElementById('feedbackEmail').value;
+                const message = document.getElementById('feedbackMessage').value;
+
+               
+                const isSuccessful = true; 
+
+                if (isSuccessful) {
+                    alert("Terima kasih atas feedback Anda!");
+             
+                    form.reset();
+                } else {
+                    alert("Terjadi kesalahan, silakan coba lagi.");
+                }
+            });
+        });
+
+   
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+    </script>
+
+}

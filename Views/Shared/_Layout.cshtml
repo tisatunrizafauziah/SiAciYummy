@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] SiAciYummy</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+          integrity="sha384-rs2S2cnvTtdm8TyW6z/QMaHag+IhXmLVsCdP+ly8ze8nXz0CbWhyyFh2ttRZz7bh" crossorigin="anonymous">
+
+    <style>
+        /* Layout agar footer selalu di bawah */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* isi ruang kosong biar footer turun */
+        }
+
+        /* Warna hijau estetik */
+        .custom-green-navbar {
+            background: linear-gradient(90deg, #064e3b, #047857);
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+        }
+
+        .hover-nav:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        /* Footer estetik sticky */
+        footer {
+            background-color: #064e3b;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+            footer a {
+                color: #fbbf24;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-2 custom-green-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    🥗 SiAci<span class="text-warning">Yummy!</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Product" asp-action="Index">
+                                <i class="fas fa-box-open me-1"></i> Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Order" asp-action="Index">
+                                <i class="fas fa-shopping-cart me-1"></i> Order
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                        @if (User.Claims.FirstOrDefault() != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Product" asp-action="ListProducts">
+                                    <i class="fas fa-list me-1"></i> List Product
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Account" asp-action="Logout">
+                                    <i class="fas fa-sign-out-alt me-1"></i> Logout
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Account" asp-action="Login">
+                                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-bold fs-5 px-3 hover-nav" asp-area="" asp-controller="Account" asp-action="Register">
+                                    <i class="fas fa-user-plus me-1"></i> Registrasi
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-3">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 - SiAciYummy 🍽️ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
